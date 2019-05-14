@@ -19,9 +19,9 @@ DATABASES.update(
     {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'hellodb',  # 数据库名
-            'USER': 'hellodb',  # 数据库用户
-            'PASSWORD': 'hellodb@2018',  # 数据库密码
+            'NAME': 'myhelloworld',  # 数据库名
+            'USER': 'myhelloworld',  # 数据库用户
+            'PASSWORD': 'myhelloworld@2018',  # 数据库密码
             'HOST': '10.0.1.192',  # 数据库主机
             'PORT': '3306',  # 数据库端口
         },
