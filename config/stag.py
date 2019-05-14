@@ -22,7 +22,7 @@ DATABASES.update(
             'NAME': 'myhelloworld',  # 数据库名
             'USER': 'myhelloworld',  # 数据库用户
             'PASSWORD': 'myhelloworld@2018',  # 数据库密码
-            'HOST': '10.0.1.192',  # 数据库主机
+            'HOST': '10.0.1.102',  # 数据库主机
             'PORT': '3306',  # 数据库端口
         },
     }
