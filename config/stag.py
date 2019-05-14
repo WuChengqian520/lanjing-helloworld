@@ -20,9 +20,9 @@ DATABASES.update(
         'default': {
             'ENGINE': 'django.db.backends.mysql',
             'NAME': 'hello',  # 数据库名
-            'USER': 'root',  # 数据库用户
-            'PASSWORD': 'hello',  # 数据库密码
-            'HOST': 'localhost',  # 数据库主机
+            'USER': 'hello',  # 数据库用户
+            'PASSWORD': 'hello@2018',  # 数据库密码
+            'HOST': '10.0.1.102',  # 数据库主机
             'PORT': '3306',  # 数据库端口
         },
     }
