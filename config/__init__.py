@@ -19,6 +19,7 @@ APP_CODE = 'myhelloworld'
 SECRET_KEY = 'ae982dd4-6f77-4965-8a8d-d5786b7ee3c4'
 # 蓝鲸SaaS平台URL, 如 https://paas.blueking.com/
 BK_URL = 'http://paas.class.o.qcloud.com:80'
+BK_PAAS_HOST = 'http://paas.class.o.qcloud.com:80'
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(
