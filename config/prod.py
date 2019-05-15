@@ -18,12 +18,12 @@ RUN_MODE = 'PRODUCT'
 DATABASES.update(
     {
         'default': {
-            'ENGINE': '',
-            'NAME': '',  # 数据库名
-            'USER': '',  # 数据库用户
-            'PASSWORD': '',  # 数据库密码
-            'HOST': '',  # 数据库主机
-            'PORT': '',  # 数据库端口
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'myhelloworld',  # 数据库名
+            'USER': 'root',  # 数据库用户
+            'PASSWORD': 'Uqv.83WuNm',  # 数据库密码
+            'HOST': '3306',  # 数据库主机
+            'PORT': '10.0.1.192',  # 数据库端口
         },
     }
 )
