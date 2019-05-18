@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>第二次作业</title>
+    <style>
+        body{font-size: 20px}
+        .box{
+            width: 500px;
+            height: 180px;
+            padding: 20px;
+            margin-left: 100px;
+            border: 1px solid green;
+            margin-bottom: 100px;
+        }
+        .title{
+            font-size: 24px;
+        }
+        input, button{padding: 5px 10px}
+        .result{color: red}
+    </style>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $(".front .submit").click(function () {
+                let inputVal = $("#input1").val();
+                console.log("zhix")
+                if(inputVal === "Hello Blueking"){
+                    $("#result1").text("Congratulation！");
+                }else{
+                    $("#result1").text("输入错误！");
+                }
+            });
+
+            $(".backstage .submit").click(function () {
+                $.post({
+                    url: window.location.href,
+                    data:{
+                        input2: $("#input2").val()
+                    },
+                    success: function (d) {
+                        if (d['code'] === 200){
+                            $("#result2").text("Congratulation！");
+                        }else{
+                            $("#result2").text("输入错误！");
+                        }
+                    }
+                })
+            });
+        })
+    </script>
+</head>
+<body>
+<b>Hello World!</b>
+<br><br>
+<div class="box front">
+    <p class="title">前端js输出</p>
+    <input type="text" class="input1" id="input1" placeholder="请输入：Hello Blueking">
+    <button class="submit">提交</button>
+    <p class="result" id="result1"></p>
+</div>
+
+<div class="box backstage">
+    <p class="title">后台返回数据</p>
+    <input type="text" class="input2" id="input2" name="input2" placeholder="请输入：Hello Blueking">
+    <button class="submit" type="submit">提交</button>
+    <p class="result" id="result2"></p>
+</div>
+</body>
+</html>
