@@ -26,12 +26,12 @@ DEBUG = True
 # SQL: CREATE DATABASE `openpaas_test_v2` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci; # noqa: E501
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.mysql',
-        # 'NAME': APP_CODE,
-        # 'USER': 'root',
-        # 'PASSWORD': 'kaadas.com',
-        # 'HOST': 'localhost',
-        # 'PORT': '3306',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': APP_CODE,
+        'USER': 'root',
+        'PASSWORD': 'kaadas.com',
+        'HOST': 'localhost',
+        'PORT': '3306',
     },
 }
 

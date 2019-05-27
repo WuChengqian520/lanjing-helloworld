@@ -27,3 +27,11 @@ def second(request):
             return JsonResponse({'code': 200})
         else:
             return JsonResponse({"code": 400})
+
+
+@login_exempt
+def third(request):
+    if request.method == "GET":
+        return render(request, 'home_application/record.html')
+    elif request.method == "POST":
+        pass

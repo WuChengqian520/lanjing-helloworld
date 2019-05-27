@@ -19,5 +19,6 @@ from home_application import views
 
 urlpatterns = (
     url(r'^$', views.home),
-    url(r'^second/$', views.second)
+    url(r'^second/$', views.second),
+    url(r'^third/$', views.third),
 )
