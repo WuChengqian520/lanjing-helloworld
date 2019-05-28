@@ -226,7 +226,7 @@
                 }
                 // 异步请求后台数据
                 $.ajax({
-                    url: '/get_list',
+                    url: window.location.href + '/get_list',
                     type: 'GET',
                     success: function(res){
                         var _html = ' ';
@@ -248,7 +248,7 @@
                 if(event.keyCode === 13){
                     $.ajax({
                     method: 'get',
-                    url: '/third/search',
+                    url: window.location.href + '/search',
                     data: {
                         ip: $("#searchbox").val()
                     },
@@ -282,7 +282,7 @@
         submitaBtn.click(function () {
             $.ajax({
                 method: 'post',
-                url: '/third',
+                url: window.location.href,
                 data: $("#mainframe").serialize(),
                 success: function (result) {
                     window.location.reload()
