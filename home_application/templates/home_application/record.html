@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>录入主机信息</title>
+    <title></title>
     <!-- 若您需要使用Kendo UI Professional，请联系版权人获得合法的授权或许可。 -->
     <!-- Bootstrap css -->
     <link href="https://magicbox.bk.tencent.com/static_api/v3/assets/bootstrap-3.3.4/css/bootstrap.min.css" rel="stylesheet">
@@ -34,7 +34,7 @@
 
 <body class="bg-white" data-bg-color="bg-white">
     <div class="king-page-box">
-        <div class="king-layout1-header">
+        <div class="king-container clearfix">
             <nav role="navigation" class="navbar navbar-default king-horizontal-nav3     f14">
                 <div class="nav-container">
                     <div class="navbar-header">
@@ -60,10 +60,12 @@
                             </li>
                             <li> <a href="javascript:void(0);">个人信息<span></span></a> </li>
                         </ul>
-                        <form class="navbar-form navbar-left" role="search">
+                        <div class="navbar-form navbar-left" id="search" role="search">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="搜索..."> </div>
-                        </form>
+                                <input type="text" class="form-control" id="searchbox" placeholder="搜索...">
+                            </div>
+                            <input type="button" id="searchBtn" style="display: none">
+                        </div>
                         <ul class="nav navbar-nav navbar-right">
                             <li>
                                 <a href="javascript:;">
@@ -75,8 +77,6 @@
                     </div>
                 </div>
             </nav>
-        </div>
-        <div class="king-layout2-main mt15" style="width:960px;">
             <div class="king-block king-block-bordered king-block-themed mb0">
                 <div class="king-block-header king-info">
                     <ul class="king-block-options">
@@ -84,48 +84,55 @@
                             <!-- <button type="button"><i class="fa fa-cog"></i></button> -->
                         </li>
                     </ul>
-                    <h3 class="king-block-title">录入主机信息</h3>
+                    <h3 class="king-block-title">录入信息</h3>
                 </div>
                 <div class="king-block-content">
-                    <form class="form-horizontal">
+                    <form class="form-horizontal" id="mainframe" method="post">
                         <div class="form-group clearfix ">
                             <label class="col-sm-3 control-label bk-lh30 pt0">主机名：</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control bk-valign-top" id="" placeholder="主机名"> </div>
+                                <input type="text" class="form-control bk-valign-top" id="" name="name" placeholder="主机名"> </div>
                         </div>
                         <div class="form-group clearfix ">
                             <label class="col-sm-3 control-label bk-lh30 pt0">IP地址：</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control bk-valign-top" id="" placeholder="IP"> </div>
+                                <input type="text" class="form-control bk-valign-top" id="" name="ip" placeholder="IP"> </div>
                         </div>
                         <div class="form-group clearfix ">
                             <label class="col-sm-3 control-label bk-lh30 pt0">常用分区：</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control bk-valign-top" id="" placeholder="分区信息"> </div>
+                                <input type="text" class="form-control bk-valign-top" id="" name="subarea" placeholder="常用分区"> </div>
                         </div>
                         <div class="form-group clearfix ">
                             <label class="control-label col-sm-3 bk-lh30 pt0">操作系统：</label>
                             <div class="col-sm-9">
                                 <div class="radio pt0">
                                     <label class="mr10">
-                                        <input type="radio" name="optionsRadios" id="" class="bk-top5" value="Windows">
+                                        <input type="radio" name="system" id="" class="bk-top5" value="Windows" checked>
                                         <span class="bk-lh30">Windows</span>
                                     </label>
                                     <label class="mr10">
-                                        <input type="radio" name="optionsRadios" id="" class="bk-top5" value="Mac">
-                                        <span class="bk-lh30">Mac</span>
+                                        <input type="radio" name="system" id="" class="bk-top5" value="Linux">
+                                        <span class="bk-lh30">Linux</span>
                                     </label>
                                     <label class="mr10">
-                                        <input type="radio" name="optionsRadios" id="" class="bk-top5" value="Linux">
-                                        <span class="bk-lh30">Linux</span>
+                                        <input type="radio" name="system" id="" class="bk-top5" value="Mac">
+                                        <span class="bk-lh30">Mac</span>
                                     </label>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group clearfix ">
-                            <label class="col-sm-3 control-label bk-lh30 pt0">备注信息：</label>
+                        <div class="form-group has-feedback clearfix ">
+                            <label class="control-label col-sm-3 pt0" for="introduction">备注信息：</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control bk-valign-top" id="" placeholder="备注（使用者，购买时间，配置信息等等）"> </div>
+                                <textarea class="form-control" rows="5" name="remark" placeholder="采购时间，系统配置等等"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group clearfix">
+                            <div class="col-sm-9 col-sm-offset-3">
+                                <button type="button" class="king-btn mr10  king-success" id="submit">提交</button>
+                                <button type="button" class="king-btn king-default" id="cancel">取消</button>
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -137,117 +144,46 @@
                             <!-- <button type="button"><i class="fa fa-cog"></i></button> -->
                         </li>
                     </ul>
-                    <h3 class="king-block-title">已录入信息</h3>
+                    <h3 class="king-block-title">系统中的信息</h3>
                 </div>
                 <div class="king-block-content">
-                    <table class="table mb0 pr15 ranger-box2  ">
+                    <table class="table mb0 pr15 ranger-box ">
                         <thead>
-                            <tr>
-                                <th style="width: 70px;">#</th>
-                                <th style="width: 15%;">名称</th>
-                                <th style="width: 15%;">位置</th>
-                                <th style="width: 15%;">日期</th>
-                                <th style="width: 15%;">类型</th>
-                                <th>操作</th>
-                            </tr>
+{#                            <tr>#}
+{#                                <th style="width: 100px;">#</th>#}
+{#                                <th style="width: 15%;">主机名</th>#}
+{#                                <th style="width: 15%;">IP地址</th>#}
+{#                                <th style="width: 15%;">常用分区</th>#}
+{#                                <th style="width: 15%;">操作系统</th>#}
+{#                                <th style="width: 15%;">备注信息</th>#}
+{#                                <th></th>#}
+{#                            </tr>#}
                         </thead>
                         <tbody>
-                            <tr>
-                                <td style="width: 70px;">1</td>
-                                <td style="width: 15%;">Ravi Kumar</td>
-                                <td style="width: 15%;">India</td>
-                                <td style="width: 15%;">23/12/2012</td>
-                                <td style="width: 15%;">Paid</td>
-                                <td>
-                                    <button class="btn btn-xs btn-success"> <i class="glyphicon glyphicon-ok"></i> </button>
-                                    <button class="btn btn-xs btn-warning"> <i class="glyphicon glyphicon-edit"></i> </button>
-                                    <button class="btn btn-xs btn-danger"> <i class="glyphicon glyphicon-remove"></i> </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="width: 70px;">2</td>
-                                <td style="width: 15%;">Ravi Kumar</td>
-                                <td style="width: 15%;">India</td>
-                                <td style="width: 15%;">23/12/2012</td>
-                                <td style="width: 15%;">Paid</td>
-                                <td>
-                                    <button class="btn btn-xs btn-success"> <i class="glyphicon glyphicon-ok"></i> </button>
-                                    <button class="btn btn-xs btn-warning"> <i class="glyphicon glyphicon-edit"></i> </button>
-                                    <button class="btn btn-xs btn-danger"> <i class="glyphicon glyphicon-remove"></i> </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="width: 70px;">3</td>
-                                <td style="width: 15%;">Ravi Kumar</td>
-                                <td style="width: 15%;">India</td>
-                                <td style="width: 15%;">23/12/2012</td>
-                                <td style="width: 15%;">Paid</td>
-                                <td>
-                                    <button class="btn btn-xs btn-success"> <i class="glyphicon glyphicon-ok"></i> </button>
-                                    <button class="btn btn-xs btn-warning"> <i class="glyphicon glyphicon-edit"></i> </button>
-                                    <button class="btn btn-xs btn-danger"> <i class="glyphicon glyphicon-remove"></i> </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="width: 70px;">4</td>
-                                <td style="width: 15%;">Ravi Kumar</td>
-                                <td style="width: 15%;">India</td>
-                                <td style="width: 15%;">23/12/2012</td>
-                                <td style="width: 15%;">Paid</td>
-                                <td>
-                                    <button class="btn btn-xs btn-success"> <i class="glyphicon glyphicon-ok"></i> </button>
-                                    <button class="btn btn-xs btn-warning"> <i class="glyphicon glyphicon-edit"></i> </button>
-                                    <button class="btn btn-xs btn-danger"> <i class="glyphicon glyphicon-remove"></i> </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="width: 70px;">5</td>
-                                <td style="width: 15%;">Ravi Kumar</td>
-                                <td style="width: 15%;">India</td>
-                                <td style="width: 15%;">23/12/2012</td>
-                                <td style="width: 15%;">Paid</td>
-                                <td>
-                                    <button class="btn btn-xs btn-success"> <i class="glyphicon glyphicon-ok"></i> </button>
-                                    <button class="btn btn-xs btn-warning"> <i class="glyphicon glyphicon-edit"></i> </button>
-                                    <button class="btn btn-xs btn-danger"> <i class="glyphicon glyphicon-remove"></i> </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="width: 70px;">6</td>
-                                <td style="width: 15%;">Ravi Kumar</td>
-                                <td style="width: 15%;">India</td>
-                                <td style="width: 15%;">23/12/2012</td>
-                                <td style="width: 15%;">Paid</td>
-                                <td>
-                                    <button class="btn btn-xs btn-success"> <i class="glyphicon glyphicon-ok"></i> </button>
-                                    <button class="btn btn-xs btn-warning"> <i class="glyphicon glyphicon-edit"></i> </button>
-                                    <button class="btn btn-xs btn-danger"> <i class="glyphicon glyphicon-remove"></i> </button>
-                                </td>
-                            </tr>
+
                         </tbody>
                     </table>
-                    <template id="header_tpl_15589498210142">
+                    <!-- 设置面板Start -->
+                    <template id="header_tpl_1559012425864">
                         <tr>
-                            <th style="width: 70px;">#index#</th>
+                            <th style="width: 5%;">#index#</th>
                             <th style="width: 15%;">#name#</th>
-                            <th style="width: 15%;">#position#</th>
-                            <th style="width: 15%;">#date#</th>
-                            <th style="width: 15%;">#type#</th>
-                            <th>操作</th>
+                            <th style="width: 15%;">#ip#</th>
+                            <th style="width: 15%;">#subarea#</th>
+                            <th style="width: 15%;">#system#</th>
+                            <th style="width: 15%;">#remark#</th>
+                            <th>#create_time#</th>
                         </tr>
                     </template>
-                    <template id="tpl_15589498210142">
+                    <template id="tpl_1559012425864">
                         <tr>
-                            <td style="width: 70px;">#index#</td>
+                            <td style="width: 5%;">#index#</td>
                             <td style="width: 15%;">#name#</td>
-                            <td style="width: 15%;">#position#</td>
-                            <td style="width: 15%;">#date#</td>
-                            <td style="width: 15%;">#type#</td>
-                            <td>
-                                <button class="btn btn-xs btn-success"> <i class="glyphicon glyphicon-ok"></i> </button>
-                                <button class="btn btn-xs btn-warning"> <i class="glyphicon glyphicon-edit"></i> </button>
-                                <button class="btn btn-xs btn-danger"> <i class="glyphicon glyphicon-remove"></i> </button>
-                            </td>
+                            <td style="width: 15%;">#ip#</td>
+                            <td style="width: 15%;">#subarea#</td>
+                            <td style="width: 15%;">#system#</td>
+                            <td style="width: 15%;">#remark#</td>
+                            <td>#create_time#</td>
                         </tr>
                     </template>
                     <!-- 设置面板End -->
@@ -255,6 +191,7 @@
             </div>
         </div>
     </div>
+    <!-- 导航栏点击效果 -->
     <script>
         $(function(){
             var li = $('.navbar-nav li');
@@ -273,6 +210,7 @@
         })
     </script>
     <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/60D03268-2E71-5546-B065-A257FC61EBD6/main.js" charset="UTF-8"></script>
+    <!-- 异步加载 -->
     <script>
         $(function(){
                 function renderTpl(str, cfg) {
@@ -286,25 +224,79 @@
                         return val;
                     });
                 }
-
                 // 异步请求后台数据
                 $.ajax({
-                    url: 'https://magicbox.bk.tencent.com/static_api/v3/components/table7/data.json',
+                    url: '/get_list',
                     type: 'GET',
                     success: function(res){
                         var _html = ' ';
                         var list = res.items;
-                        var tpl = $('#tpl_15589498210142').html();
-                        var headerTpl =  $('#header_tpl_15589498210142').html();
+                        console.log(list);
+                        var tpl = $('#tpl_1559012425864').html();
+                        var headerTpl =  $('#header_tpl_1559012425864').html();
                         for (var i=0,len=list.length; i < len; i++){
                             var item = list[i];
                             _html += renderTpl(tpl, item)
                         }
-                        $('.ranger-box2 tbody').html(_html);
-                        $('.ranger-box2 thead').html(renderTpl(headerTpl,res.catalogues));
+                        $('.ranger-box tbody').html(_html);
+                        $('.ranger-box thead').html(renderTpl(headerTpl,res.catalogues));
                     }
                 });
+
+                // 搜索
+                $("#searchbox").on("keypress", function (event) {
+                if(event.keyCode === 13){
+                    $.ajax({
+                    method: 'get',
+                    url: '/third/search',
+                    data: {
+                        ip: $("#searchbox").val()
+                    },
+                    success: function (result) {
+                        if(result['code'] === 200){
+                            var _html = ' ';
+                            var list = result.items;
+                            console.log(list);
+                            var tpl = $('#tpl_1559012425864').html();
+                            var headerTpl =  $('#header_tpl_1559012425864').html();
+                            for (var i=0,len=list.length; i < len; i++){
+                                var item = list[i];
+                                _html += renderTpl(tpl, item)
+                            }
+                            $('.ranger-box tbody').html(_html);
+                            $('.ranger-box thead').html(renderTpl(headerTpl,res.catalogues));
+                        }
+                        else{
+                            alert("不存在该主机信息");
+                            window.location.reload()
+                        }
+                    }
+                });
+            }
+        })
             });
+    </script>
+    <!-- 请求信息 -->
+    <script>
+        var submitaBtn = $("#submit");
+        submitaBtn.click(function () {
+            $.ajax({
+                method: 'post',
+                url: '/third',
+                data: $("#mainframe").serialize(),
+                success: function (result) {
+                    window.location.reload()
+                }
+            });
+        });
+        var cancelBtn = $("#cancel");
+        cancelBtn.click(function () {
+            $("#mainframe input").val("");
+        });
+    </script>
+    <!-- 搜索 -->
+    <script>
+
     </script>
 </body>
 
